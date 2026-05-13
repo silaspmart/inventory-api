@@ -2,11 +2,27 @@ POST http://localhost:3000/api/products
 Content-Type: application/json
 
 {
-  "name": "Caneta azul",
-  "quantity": ,
-  "price": 0.75
+  "name": "Cola branca",
+  "quantity": 15,
+  "price": 4
 }
 
 ###
 
 GET http://localhost:3000/api/products
+
+###
+
+PATCH http://localhost:3000/api/products/3
+Content-Type: application/json
+
+{
+    "quantity": 15,
+    "price": 5
+}
+
+###
+
+DELETE http://localhost:3000/api/products/4
+
+###

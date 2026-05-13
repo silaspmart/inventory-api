@@ -1,11 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import {
-  IsNotEmpty,
-  IsString,
-  IsNumber,
-  Validate,
-  IsDecimal,
-} from "class-validator";
+import { IsNotEmpty, IsString, IsNumber } from "class-validator";
 
 @Entity()
 export class Product {
