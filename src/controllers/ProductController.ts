@@ -26,4 +26,28 @@ export class ProductController {
       next(error);
     }
   };
+
+  update = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      await this.productService.validateSchema(req.body, true);
+      const updatedProduct = await this.productService.update(id, req.body);
+      return res.status(200).json(updatedProduct);
+    } catch (error: unknown) {
+      next(error);
+    }
+  };
+
+  delete = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const id = Number(req.params.id);
+      if (isNaN(id)) {
+        throw new Error("ID inválido");
+      }
+      await this.productService.delete(id);
+      return res.status(204).send();
+    } catch (error: unknown) {
+      next(error);
+    }
+  };
 }
